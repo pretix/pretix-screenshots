@@ -6,4 +6,4 @@ Requirements:
 How to run:
 
 * Go to pretix' ``src`` folder and execute ``python setup.py develop``
-* Go back here and run ``py.test --driver Chrome``
+* Go back here and run ``py.test``
