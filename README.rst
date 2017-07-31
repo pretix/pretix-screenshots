@@ -1,3 +1,6 @@
+pretix Screenshotting tool
+--------------------------
+
 Requirements:
 
 * Chrome 60 or newer with headless support
