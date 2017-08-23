@@ -1,8 +1,10 @@
 import datetime
+from decimal import Decimal
 
 import pytest
 import pytz
 from django.utils.timezone import now
+from i18nfield.strings import LazyI18nString
 
 from pretix.base.models import Organizer, User
 
@@ -41,6 +43,11 @@ def event(organizer):
         location='Heidelberg, Germany',
     )
     return e
+
+
+@pytest.fixture
+def tax_rule(event):
+    return event.tax_rules.create(name=LazyI18nString({'en': 'VAT', 'de': 'MwSt'}), rate=Decimal('19.00'))
 
 
 @pytest.fixture
