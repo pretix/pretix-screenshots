@@ -7,6 +7,7 @@ from django.utils.timezone import now
 from i18nfield.strings import LazyI18nString
 
 from pretix.base.models import Organizer, User
+from pretix.base.settings import GlobalSettingsObject
 
 
 @pytest.fixture
@@ -67,3 +68,9 @@ def chrome_options(chrome_options):
     chrome_options.add_argument('headless')
     chrome_options.add_argument('window-size=1024x768')
     return chrome_options
+
+
+@pytest.fixture(autouse=True)
+def noupdatewarn():
+    gs = GlobalSettingsObject()
+    gs.settings.update_check_ack = True
