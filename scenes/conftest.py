@@ -53,6 +53,12 @@ def tax_rule(event):
 
 
 @pytest.fixture
+def client(live_server, selenium, user, admin_team):
+    selenium.implicitly_wait(10)
+    return selenium
+
+
+@pytest.fixture
 def logged_in_client(live_server, selenium, user, admin_team):
     selenium.get(live_server.url + '/control/login')
     selenium.implicitly_wait(10)
