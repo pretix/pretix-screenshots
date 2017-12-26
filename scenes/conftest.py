@@ -40,7 +40,7 @@ def event(organizer):
         date_to=datetime.datetime((now().year + 1), 8, 2, 16, 0, 0, tzinfo=pytz.UTC),
         live=True,
         currency='EUR',
-        plugins='pretix.plugins.banktransfer',
+        plugins='pretix.plugins.banktransfer,pretix.plugins.ticketoutputpdf',
         is_public=True,
         location='Heidelberg, Germany',
     )
