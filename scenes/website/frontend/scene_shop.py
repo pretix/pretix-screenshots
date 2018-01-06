@@ -40,7 +40,8 @@ def items(event, tax_rule):
 
 
 @pytest.mark.django_db
-def shot_shop_frontpage(live_server, organizer, event, items, client):
+def shot_shop_frontpage(live_server, organizer, event, items, logged_in_client):
+    client = logged_in_client
     event.live = True
     event.save()
     event.settings.locales = ['en', 'de']
@@ -57,7 +58,8 @@ def shot_shop_frontpage(live_server, organizer, event, items, client):
 
 
 @pytest.mark.django_db
-def shot_shop_checkout_steps(live_server, organizer, event, items, client):
+def shot_shop_checkout_steps(live_server, organizer, event, items, logged_in_client):
+    client = logged_in_client
     event.live = True
     event.plugins += ",pretix.plugins.stripe,pretix.plugins.paypal"
     event.save()
