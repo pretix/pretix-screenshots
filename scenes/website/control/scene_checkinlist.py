@@ -28,7 +28,7 @@ def items(event, tax_rule):
 @pytest.fixture
 def list_all(event, items):
     return event.checkin_lists.create(
-        name=_('Waiting list'),
+        name=_('General admission'),
         all_products=True,
     )
 

@@ -3,21 +3,30 @@ from decimal import Decimal
 
 import pytest
 import pytz
+from django.utils import translation
 from django.utils.timezone import now
+from django.utils.translation import ugettext as _
 from i18nfield.strings import LazyI18nString
 
+from pretix.base.i18n import language
 from pretix.base.models import Organizer, User
 from pretix.base.settings import GlobalSettingsObject
 
 
+@pytest.yield_fixture(params=["en", "de"], autouse=True)
+def locale(request):
+    with language(request.param):
+        yield request.param
+
+
 @pytest.fixture
-def user():
-    return User.objects.create_user('john@example.org', 'john', fullname='John Doe')
+def user(locale):
+    return User.objects.create_user('john@example.org', 'john', fullname=_('John Doe'), locale=locale)
 
 
 @pytest.fixture
 def admin_team(organizer, user):
-    t = organizer.teams.create(name="Admin team", all_events=True, can_change_organizer_settings=True,
+    t = organizer.teams.create(name=_("Admin team"), all_events=True, can_change_organizer_settings=True,
                                can_change_event_settings=True, can_change_items=True, can_change_teams=True,
                                can_create_events=True, can_view_orders=True, can_change_orders=True,
                                can_view_vouchers=True, can_change_vouchers=True)
@@ -26,15 +35,15 @@ def admin_team(organizer, user):
 
 
 @pytest.fixture
-def organizer(user):
-    o = Organizer.objects.create(name="Awesome Event Corporation", slug="aec")
+def organizer(user, locale):
+    o = Organizer.objects.create(name=_("Awesome Event Corporation"), slug="aec")
     return o
 
 
 @pytest.fixture
-def event(organizer):
+def event(organizer, locale):
     e = organizer.events.create(
-        name="Yearly Demo Conference",
+        name=_("Yearly Demo Conference"),
         slug="ydc",
         date_from=datetime.datetime((now().year + 1), 7, 31, 9, 0, 0, tzinfo=pytz.UTC),
         date_to=datetime.datetime((now().year + 1), 8, 2, 16, 0, 0, tzinfo=pytz.UTC),
@@ -42,8 +51,13 @@ def event(organizer):
         currency='EUR',
         plugins='pretix.plugins.banktransfer,pretix.plugins.ticketoutputpdf',
         is_public=True,
-        location='Heidelberg, Germany',
+        location=_('Heidelberg, Germany'),
     )
+    if locale in ['en', 'de']:
+        e.settings.locales = ['en', 'de']
+    else:
+        e.settings.locales = ['en', locale]
+    e.settings.language = locale
     return e
 
 
@@ -53,13 +67,13 @@ def tax_rule(event):
 
 
 @pytest.fixture
-def client(live_server, selenium, user, admin_team):
+def client(live_server, selenium, user, admin_team, locale):
     selenium.implicitly_wait(10)
     return selenium
 
 
 @pytest.fixture
-def logged_in_client(live_server, selenium, user, admin_team):
+def logged_in_client(live_server, selenium, user, admin_team, locale):
     selenium.get(live_server.url + '/control/login')
     selenium.implicitly_wait(10)
 

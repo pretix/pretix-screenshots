@@ -6,6 +6,7 @@ import pytest
 from decimal import Decimal
 from django.conf import settings
 from django.utils.timezone import now
+from django.utils.translation import ugettext as _
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
@@ -20,7 +21,7 @@ def campaign_web(event):
 
     return Campaign.objects.create(
         event=event,
-        description='Event website',
+        description=_('Event website'),
     )
 
 
@@ -36,8 +37,8 @@ def campaign_twitter(event):
 
 @pytest.fixture
 def orders(event, campaign_twitter, campaign_web):
-    eb = event.items.create(name='Early-bird ticket', default_price=23, admission=True)
-    regular = event.items.create(name='Regular ticket', default_price=26, admission=True)
+    eb = event.items.create(name=_('Early-bird ticket'), default_price=23, admission=True)
+    regular = event.items.create(name=_('Regular ticket'), default_price=26, admission=True)
     for day in range(30):
         d = now() - timedelta(days=day)
         num = max(0, random.randint(25, 45) - day)

@@ -4,6 +4,7 @@ from datetime import timedelta
 from decimal import Decimal
 
 from django.utils.timezone import now
+from django.utils.translation import ugettext as _
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
@@ -16,8 +17,8 @@ def shot_statistics(live_server, organizer, event, logged_in_client):
     event.plugins += ',pretix.plugins.statistics'
     event.save()
 
-    eb = event.items.create(name='Early-bird ticket', default_price=23, admission=True)
-    regular = event.items.create(name='Regular ticket', default_price=26, admission=True)
+    eb = event.items.create(name=_('Early-bird ticket'), default_price=23, admission=True)
+    regular = event.items.create(name=_('Regular ticket'), default_price=26, admission=True)
     for day in range(30):
         d = now() - timedelta(days=day)
         num = max(0, random.randint(25, 45) - day)

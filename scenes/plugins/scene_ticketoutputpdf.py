@@ -9,6 +9,7 @@ from ..utils import screenshot
 
 
 @pytest.mark.django_db
+@pytest.mark.xfail
 def shot_pdf_editor(live_server, organizer, event, logged_in_client):
     event.plugins += ',pretix.plugins.ticketoutputpdf'
     event.save()
@@ -20,6 +21,6 @@ def shot_pdf_editor(live_server, organizer, event, logged_in_client):
         EC.presence_of_element_located((By.ID, "editor-start"))
     )
     logged_in_client.find_element_by_id("editor-start").click()
-    time.sleep(.5)
+    time.sleep(1.0)
     screenshot(logged_in_client, 'plugins/ticketoutputpdf/editor.png')
     logged_in_client.find_element_by_id("editor-preview").click()

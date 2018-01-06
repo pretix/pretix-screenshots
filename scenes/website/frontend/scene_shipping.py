@@ -3,6 +3,7 @@ from decimal import Decimal
 
 import pytest
 from django.conf import settings
+from django.utils.translation import ugettext as _
 
 from ...utils import screenshot
 
@@ -15,8 +16,8 @@ def shipping_method_letter(event, tax_rule):
         event=event,
         active=True,
         method_type='ship',
-        name='Postal Service',
-        description='Your ticket will be sent to your home.',
+        name=_('Postal Service'),
+        description=_('Your ticket will be sent to your home.'),
         tax_rule=tax_rule,
         cover_sheet=True,
         price=Decimal('2.50')
@@ -32,17 +33,17 @@ def shipping_method_online(event):
         active=True,
         method_type='online',
         price=0,
-        name='Print at home',
-        description='You can download your ticket right away.',
+        name=_('Print at home'),
+        description=_('You can download your ticket right away.'),
         cover_sheet=True,
     )
 
 
 @pytest.fixture
 def cart(organizer, event, tax_rule, live_server, logged_in_client):
-    quota_tickets = event.quotas.create(name='Tickets', size=5)
+    quota_tickets = event.quotas.create(name=_('Tickets'), size=5)
     ticket = event.items.create(
-        name='Early-bird ticket', default_price=23, admission=True,
+        name=_('Early-bird ticket'), default_price=23, admission=True,
         tax_rule=tax_rule
     )
     quota_tickets.items.add(ticket)

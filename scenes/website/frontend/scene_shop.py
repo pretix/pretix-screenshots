@@ -25,7 +25,7 @@ def items(event, tax_rule):
     wc2 = event.items.create(name=_('Workshop session: Analog future'), default_price=12, active=True, category=wc)
     i1.addons.create(addon_category=wc, min_count=0, max_count=2)
 
-    q1 = event.quotas.create(name='Available', size=100)
+    q1 = event.quotas.create(name=_('Available'), size=100)
     q1.items.add(i1)
     q1.items.add(i2)
     q1.items.add(i4)
@@ -34,7 +34,7 @@ def items(event, tax_rule):
     q1.variations.add(v1)
     q1.variations.add(v2)
     q1.variations.add(v4)
-    q2 = event.quotas.create(name='Unavailable', size=0)
+    q2 = event.quotas.create(name=_('Unavailable'), size=0)
     q2.items.add(i3)
     return [i1, i2, i3, i4, wc1, wc2]
 

@@ -8,6 +8,7 @@ import pytest
 from decimal import Decimal
 from django.conf import settings
 from django.utils.timezone import now
+from django.utils.translation import ugettext as _
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -25,21 +26,21 @@ def shot_stretchgoals(live_server, organizer, event, logged_in_client):
     event.plugins += ',pretix_stretchgoals'
     event.save()
 
-    eb = event.items.create(name='Early-bird ticket', default_price=23, admission=True)
-    regular = event.items.create(name='Regular ticket', default_price=26, admission=True)
+    eb = event.items.create(name=_('Early-bird ticket'), default_price=23, admission=True)
+    regular = event.items.create(name=_('Regular ticket'), default_price=26, admission=True)
     event.settings.stretchgoals_items = '{},{}'.format(eb.pk, regular.pk)
     event.settings.stretchgoals_chart_averages = True
     event.settings.stretchgoals_chart_totals = True
     event.settings.stretchgoals_is_public = True
     event.settings.stretchgoals_goals = json.dumps([
         {
-            'name': 'Break-even',
+            'name': _('Break-even'),
             'total': 10000,
             'amount': 435,
             'description': ''
         },
         {
-            'name': 'We can have a party',
+            'name': _('We can have a party'),
             'total': 20000,
             'amount': 435,
             'description': ''
