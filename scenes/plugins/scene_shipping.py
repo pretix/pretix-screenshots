@@ -52,7 +52,6 @@ def cart(organizer, event, tax_rule, live_server, logged_in_client):
     logged_in_client.get(live_server.url + '/{}/{}/'.format(
         organizer.slug, event.slug,
     ))
-    logged_in_client.find_element_by_css_selector("input[name='item_{}']".format(ticket.pk)).send_keys("1")
     logged_in_client.find_element_by_id("btn-add-to-cart").click()
     logged_in_client.find_element_by_css_selector(".cart-row")
     logged_in_client.get(live_server.url + '/{}/{}/checkout/start'.format(
