@@ -25,6 +25,18 @@ def user(locale):
 
 
 @pytest.fixture
+def webhook(organizer):
+    wh = organizer.webhooks.create(
+        enabled=True,
+        target_url='https://example.com/webhookendpoint/',
+        all_events=True
+    )
+    wh.listeners.create(action_type='pretix.event.order.placed')
+    wh.listeners.create(action_type='pretix.event.order.paid')
+    return wh
+
+
+@pytest.fixture
 def admin_team(organizer, user):
     t = organizer.teams.create(name=_("Admin team"), all_events=True, can_change_organizer_settings=True,
                                can_change_event_settings=True, can_change_items=True, can_change_teams=True,
@@ -85,7 +97,6 @@ def logged_in_client(live_server, selenium, user, admin_team, locale):
 
 @pytest.fixture
 def chrome_options(chrome_options):
-
     chrome_options.add_argument('headless')
     chrome_options.add_argument('window-size=1024x768')
     return chrome_options
