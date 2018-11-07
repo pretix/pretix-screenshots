@@ -47,6 +47,5 @@ def shot_organizer_webhook_list(live_server, organizer, event, webhook, logged_i
 
 @pytest.mark.django_db
 def shot_organizer_webhook_edit(live_server, organizer, event, webhook, logged_in_client):
-    logged_in_client.get(live_server.url + '/control/organizer/{}/webhooks/{}/edit'.format(organizer.slug,
-                                                                                           webhook.pk))
+    logged_in_client.get(live_server.url + '/control/organizer/{}/webhook/{}/edit'.format(organizer.slug, webhook.pk))
     screenshot(logged_in_client, 'organizer/webhook_edit.png')
