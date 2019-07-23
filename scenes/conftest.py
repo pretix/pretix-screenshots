@@ -6,6 +6,7 @@ import pytz
 from django.utils import translation
 from django.utils.timezone import now
 from django.utils.translation import ugettext as _
+from django_scopes import scopes_disabled
 from i18nfield.strings import LazyI18nString
 
 from pretix.base.i18n import language
@@ -15,7 +16,7 @@ from pretix.base.settings import GlobalSettingsObject
 
 @pytest.yield_fixture(params=["en", "de"], autouse=True)
 def locale(request):
-    with language(request.param):
+    with language(request.param), scopes_disabled():
         yield request.param
 
 
