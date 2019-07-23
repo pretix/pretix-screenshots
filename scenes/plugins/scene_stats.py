@@ -28,9 +28,7 @@ def shot_statistics(live_server, organizer, event, logged_in_client):
                 email='admin@localhost',
                 expires=now(),
                 datetime=d,
-                payment_date=d,
                 total=Decimal("23"),
-                payment_provider='banktransfer',
                 locale='en'
             )
             if day > 15:

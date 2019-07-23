@@ -52,9 +52,7 @@ def data(event, items, list_all, list_vip):
             email='admin@localhost',
             expires=now(),
             datetime=d,
-            payment_date=d,
             total=Decimal("23"),
-            payment_provider='banktransfer',
             locale='en'
         )
         if random.randrange(0, 10) < 3:

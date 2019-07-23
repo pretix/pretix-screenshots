@@ -82,9 +82,9 @@ def shot_shop_checkout_steps(live_server, organizer, event, items, logged_in_cli
     client.find_element_by_css_selector("#btn-add-to-cart").click()
 
     # Cart
-    client.find_element_by_css_selector("#cart")
+    client.find_element_by_css_selector(".cart")
     screenshot(client, 'website/frontend/shop_addons.png')
-    client.find_element_by_css_selector("#cart .btn-primary").click()
+    client.find_element_by_css_selector(".cart .btn-primary").click()
 
     # Addons
     client.find_element_by_css_selector(".checkout-flow")

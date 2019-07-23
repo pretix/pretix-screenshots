@@ -15,7 +15,7 @@ def shot_waiting_list_admin(live_server, organizer, event, logged_in_client):
     event.settings.waiting_list_auto = True
     event.save()
 
-    logged_in_client.get(live_server.url + '/control/event/{}/{}/pdfoutput/editor/'.format(
+    logged_in_client.get(live_server.url + '/control/event/{}/{}/pdfoutput/default'.format(
         organizer.slug, event.slug
     ))
     WebDriverWait(logged_in_client, 10).until(

@@ -13,7 +13,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from pretix.base.models import Order
+from pretix.base.models import Order, OrderPayment
 from ..utils import screenshot
 
 
@@ -53,10 +53,14 @@ def shot_stretchgoals(live_server, organizer, event, logged_in_client):
             email='admin@localhost',
             expires=now(),
             datetime=d,
-            payment_date=d,
             total=Decimal("23"),
-            payment_provider='banktransfer',
             locale='en'
+        )
+        order.payments.create(
+            provider='banktransfer',
+            amount=order.total,
+            payment_date=d,
+            state=OrderPayment.PAYMENT_STATE_CONFIRMED
         )
         num = max(0, random.randint(25, 45) - day)
         for l in range(num):

@@ -20,7 +20,6 @@ def shipping_method_letter(event, tax_rule):
         name=_('Postal Service'),
         description=_('Your ticket will be sent to your home.'),
         tax_rule=tax_rule,
-        cover_sheet=True,
         price=Decimal('2.50')
     )
 
@@ -36,7 +35,6 @@ def shipping_method_online(event):
         price=0,
         name=_('Print at home'),
         description=_('You can download your ticket right away.'),
-        cover_sheet=True,
     )
 
 
