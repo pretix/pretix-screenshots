@@ -1,3 +1,5 @@
+import time
+
 import pytest
 
 from ...utils import screenshot

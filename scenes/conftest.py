@@ -3,6 +3,7 @@ from decimal import Decimal
 
 import pytest
 import pytz
+from django.test import utils
 from django.utils import translation
 from django.utils.timezone import now
 from django.utils.translation import ugettext as _
@@ -107,3 +108,6 @@ def chrome_options(chrome_options):
 def noupdatewarn():
     gs = GlobalSettingsObject()
     gs.settings.update_check_ack = True
+
+
+utils.setup_databases = scopes_disabled()(utils.setup_databases)
