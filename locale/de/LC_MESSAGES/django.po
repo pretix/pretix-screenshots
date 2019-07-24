@@ -7,33 +7,33 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-06 20:10+0100\n"
-"PO-Revision-Date: 2018-01-06 20:35+0100\n"
+"POT-Creation-Date: 2019-07-24 11:25+0200\n"
+"PO-Revision-Date: 2019-07-24 11:29+0200\n"
 "Last-Translator: Raphael Michel <michel@rami.io>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.2\n"
+"X-Generator: Poedit 2.2.1\n"
 
-#: scenes/conftest.py:23
+#: scenes/conftest.py:26
 msgid "John Doe"
 msgstr "Max Mustermann"
 
-#: scenes/conftest.py:28
+#: scenes/conftest.py:43
 msgid "Admin team"
 msgstr "Admin-Team"
 
-#: scenes/conftest.py:38
+#: scenes/conftest.py:53
 msgid "Awesome Event Corporation"
 msgstr "Eventfirma GmbH"
 
-#: scenes/conftest.py:45
+#: scenes/conftest.py:60
 msgid "Yearly Demo Conference"
 msgstr "Alljährliche Demo-Konferenz"
 
-#: scenes/conftest.py:53
+#: scenes/conftest.py:68
 msgid "Heidelberg, Germany"
 msgstr "Heidelberg, Deutschland"
 
@@ -56,10 +56,10 @@ msgstr "München"
 msgid "Event website"
 msgstr "Event-Website"
 
-#: scenes/plugins/scene_campaigns.py:40 scenes/plugins/scene_shipping.py:47
+#: scenes/plugins/scene_campaigns.py:40 scenes/plugins/scene_shipping.py:45
 #: scenes/plugins/scene_stats.py:20 scenes/plugins/scene_stretchgoals.py:29
 #: scenes/website/control/scene_marketing.py:66
-#: scenes/website/frontend/scene_shipping.py:46
+#: scenes/website/frontend/scene_shipping.py:44
 msgid "Early-bird ticket"
 msgstr "Frühbucher-Ticket"
 
@@ -68,6 +68,105 @@ msgstr "Frühbucher-Ticket"
 #: scenes/website/control/scene_marketing.py:67
 msgid "Regular ticket"
 msgstr "Normales Ticket"
+
+#: scenes/plugins/scene_resellers.py:14
+#: scenes/website/control/scene_checkinlist.py:16
+#: scenes/website/control/scene_waitinglist.py:12
+#: scenes/website/frontend/scene_shop.py:10
+msgid "Business Ticket"
+msgstr "Business-Ticket"
+
+#: scenes/plugins/scene_resellers.py:16
+#: scenes/website/frontend/scene_shop.py:12
+msgid "Individual Ticket"
+msgstr "Ticket für Privatpersonen"
+
+#: scenes/plugins/scene_resellers.py:18
+#: scenes/website/control/scene_checkinlist.py:18
+#: scenes/website/control/scene_waitinglist.py:14
+#: scenes/website/frontend/scene_shop.py:14
+msgid "VIP Ticket"
+msgstr "VIP-Ticket"
+
+#: scenes/plugins/scene_resellers.py:20
+#: scenes/website/frontend/scene_shop.py:16
+msgid "Merchandise"
+msgstr "Merchandise"
+
+#: scenes/plugins/scene_resellers.py:21
+#: scenes/website/frontend/scene_shop.py:17
+msgid "T-Shirt"
+msgstr "T-Shirt"
+
+#: scenes/plugins/scene_resellers.py:23
+#: scenes/website/frontend/scene_shop.py:19
+msgid "S"
+msgstr "S"
+
+#: scenes/plugins/scene_resellers.py:24
+#: scenes/website/frontend/scene_shop.py:20
+msgid "M"
+msgstr "M"
+
+#: scenes/plugins/scene_resellers.py:25
+#: scenes/website/frontend/scene_shop.py:21
+msgid "L"
+msgstr "L"
+
+#: scenes/plugins/scene_resellers.py:27
+#: scenes/website/frontend/scene_shop.py:23
+msgid "Workshops"
+msgstr "Workshop"
+
+#: scenes/plugins/scene_resellers.py:28
+#: scenes/website/frontend/scene_shop.py:24
+msgid "Workshop session: Digital future"
+msgstr "Workshop: Digitale Zukunft"
+
+#: scenes/plugins/scene_resellers.py:29
+#: scenes/website/frontend/scene_shop.py:25
+msgid "Workshop session: Analog future"
+msgstr "Workshop: Analoge Zukunft"
+
+#: scenes/plugins/scene_resellers.py:32
+#: scenes/website/frontend/scene_shop.py:28
+msgid "Available"
+msgstr "Verfügbar"
+
+#: scenes/plugins/scene_resellers.py:41
+#: scenes/website/frontend/scene_shop.py:37
+msgid "Unavailable"
+msgstr "Nicht verfügbar"
+
+#: scenes/plugins/scene_seating.py:20
+msgid "Main hall"
+msgstr "Großer Saal"
+
+#: scenes/plugins/scene_seating.py:28
+msgid "Category 1"
+msgstr "Preiskategorie 1"
+
+#: scenes/plugins/scene_seating.py:31 scenes/plugins/scene_seating.py:42
+#: scenes/plugins/scene_seating.py:53
+msgid "Regular"
+msgstr "Regulär"
+
+#: scenes/plugins/scene_seating.py:32 scenes/plugins/scene_seating.py:43
+#: scenes/plugins/scene_seating.py:54
+msgid "Student"
+msgstr "Ermäßigt"
+
+#: scenes/plugins/scene_seating.py:39
+msgid "Category 2"
+msgstr "Preiskategorie 2"
+
+#: scenes/plugins/scene_seating.py:50
+msgid "Category 3"
+msgstr "Preiskategorie 3"
+
+#: scenes/plugins/scene_seating.py:72
+msgid "Cool Cello Concert"
+msgstr "Festliches Abschlusskonzert"
 
 #: scenes/plugins/scene_shipping.py:20
 #: scenes/website/frontend/scene_shipping.py:19
@@ -79,13 +178,13 @@ msgstr "Postversand"
 msgid "Your ticket will be sent to your home."
 msgstr "Das Ticket wird zu Ihnen nach Hause geschickt."
 
-#: scenes/plugins/scene_shipping.py:37
-#: scenes/website/frontend/scene_shipping.py:36
+#: scenes/plugins/scene_shipping.py:36
+#: scenes/website/frontend/scene_shipping.py:35
 msgid "Print at home"
 msgstr "Selbst ausdrucken"
 
-#: scenes/plugins/scene_shipping.py:38
-#: scenes/website/frontend/scene_shipping.py:37
+#: scenes/plugins/scene_shipping.py:37
+#: scenes/website/frontend/scene_shipping.py:36
 msgid "You can download your ticket right away."
 msgstr "Sie können Ihr Ticket direkt erhalten."
 
@@ -97,18 +196,6 @@ msgstr "Schwarze Null"
 msgid "We can have a party"
 msgstr "Wir können uns eine Party leisten"
 
-#: scenes/website/control/scene_checkinlist.py:16
-#: scenes/website/control/scene_waitinglist.py:12
-#: scenes/website/frontend/scene_shop.py:10
-msgid "Business Ticket"
-msgstr "Business-Ticket"
-
-#: scenes/website/control/scene_checkinlist.py:18
-#: scenes/website/control/scene_waitinglist.py:14
-#: scenes/website/frontend/scene_shop.py:14
-msgid "VIP Ticket"
-msgstr "VIP-Ticket"
-
 #: scenes/website/control/scene_checkinlist.py:31
 msgid "General admission"
 msgstr "Allgemeiner Einlass"
@@ -117,53 +204,9 @@ msgstr "Allgemeiner Einlass"
 msgid "VIP Lounge"
 msgstr "VIP-Lounge"
 
-#: scenes/website/frontend/scene_shipping.py:44
+#: scenes/website/frontend/scene_shipping.py:42
 msgid "Tickets"
 msgstr "Tickets"
-
-#: scenes/website/frontend/scene_shop.py:12
-msgid "Individual Ticket"
-msgstr "Ticket für Privatpersonen"
-
-#: scenes/website/frontend/scene_shop.py:16
-msgid "Merchandise"
-msgstr "Merchandise"
-
-#: scenes/website/frontend/scene_shop.py:17
-msgid "T-Shirt"
-msgstr "T-Shirt"
-
-#: scenes/website/frontend/scene_shop.py:19
-msgid "S"
-msgstr "S"
-
-#: scenes/website/frontend/scene_shop.py:20
-msgid "M"
-msgstr "M"
-
-#: scenes/website/frontend/scene_shop.py:21
-msgid "L"
-msgstr "L"
-
-#: scenes/website/frontend/scene_shop.py:23
-msgid "Workshops"
-msgstr "Workshop"
-
-#: scenes/website/frontend/scene_shop.py:24
-msgid "Workshop session: Digital future"
-msgstr "Workshop: Digitale Zukunft"
-
-#: scenes/website/frontend/scene_shop.py:25
-msgid "Workshop session: Analog future"
-msgstr "Workshop: Analoge Zukunft"
-
-#: scenes/website/frontend/scene_shop.py:28
-msgid "Available"
-msgstr "Verfügbar"
-
-#: scenes/website/frontend/scene_shop.py:37
-msgid "Unavailable"
-msgstr "Nicht verfügbar"
 
 #~ msgid "Waiting list"
 #~ msgstr "Warteliste"

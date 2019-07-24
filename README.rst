@@ -10,4 +10,4 @@ How to run:
 
 * Go to pretix' ``src`` folder and execute ``python setup.py develop``
 * Execute ``make production`` there
-* Go back here and run ``PYTHONPATH=. py.test``
+* Go back here and run ``PYTHONPATH=. py.test scenes``
