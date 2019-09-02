@@ -43,6 +43,14 @@ CACHES = {
     }
 }
 
+try:
+    import pretixeu
+
+    TEMPLATES[0]['DIRS'].insert(0, os.path.join(os.path.dirname(pretixeu.__file__), 'templates'))
+    TEMPLATES[0]['OPTIONS']['context_processors'].append('pretixeu.billing.context.contextprocessor')
+except ImportError:
+    pass
+
 
 class DisableMigrations(object):
     def __contains__(self, item):

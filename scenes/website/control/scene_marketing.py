@@ -13,7 +13,7 @@ from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from pretix.base.models import Order
+from pretix.base.models import Order, OrderPayment
 from ...utils import screenshot
 
 
@@ -74,10 +74,14 @@ def orders(event, campaign_twitter, campaign_web):
                 email='admin@localhost',
                 expires=now(),
                 datetime=d,
-                payment_date=d,
                 total=Decimal("23"),
-                payment_provider='banktransfer',
                 locale='en'
+            )
+            order.payments.create(
+                state=OrderPayment.PAYMENT_STATE_CONFIRMED,
+                provider="banktransfer",
+                payment_date=d,
+                amount=order.total
             )
             random.choice([campaign_twitter, campaign_web, campaign_web]).orders.add(order)
             if day > 15:
@@ -129,3 +133,23 @@ def shot_campaign(live_server, organizer, event, logged_in_client, campaign_web,
     )
     time.sleep(.5)
     screenshot(logged_in_client, 'website/control/campaigns_detail.png')
+
+
+@pytest.mark.django_db
+@pytest.mark.skipif(
+    'pretix_campaigns' not in settings.INSTALLED_APPS or 'pretixeu.billing' not in settings.INSTALLED_APPS,
+    reason='Plugin not installed.'
+)
+def shot_campaign_var(live_server, organizer, event, logged_in_client, campaign_web, campaign_twitter, orders, clicks,
+                      var):
+    event.plugins += ',pretix_campaigns'
+    event.save()
+
+    logged_in_client.get(live_server.url + '/control/event/{}/{}/campaigns/{}/'.format(
+        organizer.slug, event.slug, campaign_twitter.code
+    ))
+    WebDriverWait(logged_in_client, 10).until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, "#cbd_chart svg"))
+    )
+    time.sleep(.5)
+    screenshot(logged_in_client, 'website/control/campaigns_detail_var.png')

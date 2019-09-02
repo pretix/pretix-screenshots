@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="26.749687mm"
+   height="21.564026mm"
+   viewBox="0 0 26.749687 21.564026"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
+   sodipodi:docname="ticketshoplive_logo.svg"
+   inkscape:export-filename="/home/raphael/proj/pretix/local/pretix-screenshots/assets/ticketshoplive_logo.png"
+   inkscape:export-xdpi="167.47482"
+   inkscape:export-ydpi="167.47482">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="8.5379197"
+     inkscape:cy="40.239279"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="2"
+     fit-margin-left="2"
+     fit-margin-right="2"
+     fit-margin-bottom="2"
+     inkscape:window-width="1916"
+     inkscape:window-height="1041"
+     inkscape:window-x="0"
+     inkscape:window-y="18"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-25.122553,-120.80759)">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:3.52777767px;line-height:6.61458302px;font-family:'DIN Medium';-inkscape-font-specification:'DIN Medium, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="26.998529"
+       y="139.64815"
+       id="text4520"><tspan
+         sodipodi:role="line"
+         id="tspan4518"
+         x="26.998529"
+         y="139.64815"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:3.52777767px;font-family:'DIN Medium';-inkscape-font-specification:'DIN Medium, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332px">ticketshop.live</tspan></text>
+    <g
+       id="Filled_Icons"
+       transform="matrix(0.49558655,0,0,0.49558655,32.64297,122.61642)"
+       style="fill:#b53232;fill-opacity:1">
+	<g
+   id="g5059"
+   style="fill:#b53232;fill-opacity:1">
+		<path
+   inkscape:connector-curvature="0"
+   d="M 14.995,5.475 C 14.713,5.193 14.336,5.037 13.934,5.037 c -0.402,0 -0.779,0.155 -1.061,0.438 l -7.778,7.778 c -0.585,0.585 -0.585,1.536 0,2.122 l 3.536,3.535 c 0.564,0.564 1.558,0.564 2.121,0 l 7.778,-7.778 c 0.585,-0.585 0.585,-1.536 0,-2.121 z m -7.07,9.192 c -0.098,0.098 -0.226,0.147 -0.354,0.147 -0.127,0 -0.255,-0.049 -0.352,-0.147 -0.195,-0.194 -0.195,-0.511 0,-0.707 l 6.363,-6.363 c 0.195,-0.195 0.512,-0.195 0.707,0 0.195,0.195 0.195,0.512 0,0.707 z m 6.717,-2.475 -2.828,2.828 c -0.098,0.098 -0.226,0.146 -0.354,0.146 -0.128,0 -0.257,-0.049 -0.354,-0.146 -0.195,-0.195 -0.195,-0.512 0,-0.707 l 2.828,-2.828 c 0.195,-0.194 0.512,-0.194 0.707,0 0.195,0.196 0.195,0.512 10e-4,0.707 z"
+   id="path5055"
+   style="fill:#b53232;fill-opacity:1" />
+
+		<path
+   inkscape:connector-curvature="0"
+   d="m 23.48,7.596 c 0.195,-0.195 0.195,-0.512 0,-0.707 L 17.117,0.526 c -0.188,-0.187 -0.52,-0.187 -0.707,0 -0.473,0.472 -1.101,0.732 -1.769,0.732 -0.668,0 -1.296,-0.261 -1.768,-0.732 -0.188,-0.187 -0.52,-0.187 -0.707,0 L 0.147,12.546 C 0.053,12.641 0,12.767 0,12.899 c 0,0.132 0.053,0.26 0.147,0.354 0.472,0.472 0.732,1.1 0.732,1.768 0,0.669 -0.261,1.296 -0.732,1.769 C 0.053,16.883 0,17.01 0,17.143 c 0,0.133 0.053,0.26 0.147,0.354 l 6.364,6.363 c 0.195,0.195 0.512,0.195 0.707,0 0.472,-0.473 1.1,-0.732 1.768,-0.732 0.667,0 1.295,0.26 1.767,0.732 0.094,0.094 0.221,0.146 0.353,0.146 0.133,0 0.26,-0.053 0.354,-0.146 L 23.48,11.84 c 0.195,-0.196 0.195,-0.513 0,-0.708 -0.974,-0.974 -0.974,-2.562 0,-3.536 z m -4.242,4.244 -7.778,7.777 c -0.471,0.471 -1.099,0.729 -1.768,0.729 -0.67,0 -1.297,-0.259 -1.768,-0.729 L 4.388,16.081 c -0.975,-0.974 -0.975,-2.561 0,-3.535 l 7.778,-7.778 c 0.47,-0.471 1.098,-0.731 1.768,-0.731 0.669,0 1.297,0.26 1.767,0.731 l 3.536,3.536 c 0.976,0.974 0.976,2.56 0.001,3.536 z"
+   id="path5057"
+   style="fill:#b53232;fill-opacity:1" />
+
+	</g>
+
+</g>
+  </g>
+</svg>

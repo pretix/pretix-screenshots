@@ -1,4 +1,5 @@
 import datetime
+import os
 from decimal import Decimal
 
 import pytest
@@ -78,6 +79,27 @@ def event(organizer, locale):
 @pytest.fixture
 def tax_rule(event):
     return event.tax_rules.create(name=LazyI18nString({'en': 'VAT', 'de': 'MwSt'}), rate=Decimal('19.00'))
+
+
+@pytest.fixture
+def var(organizer, settings):
+    try:
+        from pretixeu.billing.models import BrandingPartner, OrganizerProfile
+        import pretixeu
+    except ImportError:
+        pytest.skip("pretixeu not installed")
+    bp = BrandingPartner(
+        name="ticketshop.live",
+        public_name="ticketshop.live",
+        public_url="https://ticketshop.live",
+        support_email="support@ticketshop.live",
+    )
+    bp.logo.save("logo.png", open(os.path.join(os.path.dirname(__file__), "../assets/ticketshoplive_logo.png"), "rb"))
+    bp.save()
+    p = OrganizerProfile.objects.get_or_create(organizer=organizer)[0]
+    p.branding_partner = bp
+    p.save()
+    return bp
 
 
 @pytest.fixture
