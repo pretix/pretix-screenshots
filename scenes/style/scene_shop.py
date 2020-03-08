@@ -8,6 +8,7 @@ from django.core.files.storage import default_storage
 from django.utils.translation import ugettext as _
 from pretix.presale.style import regenerate_css
 
+from pretix.presale.style import regenerate_css
 from ..utils import screenshot
 
 
@@ -116,7 +117,7 @@ def pic_opts(request, event):
 
 @pytest.mark.django_db
 def shot_shop_frontpage(live_server, organizer, event, items, color_opts, lang_opts, pic_opts,
-                        client):
+                        client, organizer_link_back):
     event.live = True
     event.save()
     event.settings.waiting_list_enabled = True
@@ -129,5 +130,5 @@ def shot_shop_frontpage(live_server, organizer, event, items, color_opts, lang_o
     client.execute_script("window.scrollTo(0, 0)")
     time.sleep(1)
     screenshot(client, 'style/shop_frontpage_{}.png'.format('_'.join([
-        SCREEN, color_opts, pic_opts, lang_opts
+        SCREEN, color_opts, pic_opts, lang_opts, organizer_link_back
     ])))
