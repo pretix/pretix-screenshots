@@ -4,7 +4,7 @@ import time
 import pytest
 import random
 from django.conf import settings
-from django.utils.translation import ugettext as _, get_language
+from django.utils.translation import gettext as _, get_language
 
 from pretix.base.models import SeatingPlan, Event
 from pretix.base.services.seating import generate_seats

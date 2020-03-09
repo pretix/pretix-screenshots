@@ -5,7 +5,7 @@ import faker
 import pytest
 from decimal import Decimal
 from django.utils.timezone import now
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 from pretix.base.models import Order
 from ...utils import screenshot

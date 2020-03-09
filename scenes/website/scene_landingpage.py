@@ -2,7 +2,7 @@ import time
 
 import pytest
 from django.conf import settings
-from django.utils.translation import ugettext as _, get_language
+from django.utils.translation import gettext as _, get_language
 
 from ..plugins.scene_seating import seating_event, seating_plan, item_back, item_front, item_middle
 from .frontend.scene_shop import items

@@ -2,7 +2,7 @@ import datetime
 import pytest
 import pytz
 from django.utils.timezone import now
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 from ...utils import screenshot
 

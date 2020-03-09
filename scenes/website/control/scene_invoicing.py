@@ -2,7 +2,7 @@ import random
 
 import faker
 import pytest
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 from ...utils import screenshot
 

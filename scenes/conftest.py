@@ -7,7 +7,7 @@ import pytz
 from django.test import utils
 from django.utils import translation
 from django.utils.timezone import now
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 from django_scopes import scopes_disabled
 from i18nfield.strings import LazyI18nString
 
