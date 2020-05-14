@@ -13,7 +13,7 @@ def shot_widget_creator(live_server, organizer, event, logged_in_client):
 
 @pytest.mark.django_db
 def shot_payment_settings(live_server, organizer, event, logged_in_client):
-    logged_in_client.get(live_server.url + '/control/event/{}/{}/settings/payment'.format(
+    logged_in_client.get(live_server.url + '/control/event/{}/{}/settings/payment#tab-0-1-open'.format(
         organizer.slug, event.slug
     ))
     screenshot(logged_in_client, 'event/settings_payment.png')
@@ -29,7 +29,7 @@ def shot_plugin_settings(live_server, organizer, event, logged_in_client):
 
 @pytest.mark.django_db
 def shot_display_settings(live_server, organizer, event, logged_in_client):
-    logged_in_client.get(live_server.url + '/control/event/{}/{}/settings/display'.format(
+    logged_in_client.get(live_server.url + '/control/event/{}/{}/settings/#tab-0-4-open'.format(
         organizer.slug, event.slug
     ))
     screenshot(logged_in_client, 'event/settings_display.png')
