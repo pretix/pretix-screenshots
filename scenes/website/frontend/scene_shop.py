@@ -100,3 +100,31 @@ def shot_shop_checkout_steps(live_server, organizer, event, items, logged_in_cli
     # Payment
     client.find_element_by_css_selector("#payment_accordion")
     screenshot(client, 'website/frontend/shop_payment.png')
+
+
+@pytest.mark.django_db
+def shot_shop_checkout_customer_step(live_server, organizer, event, items, logged_in_client):
+    client = logged_in_client
+    event.live = True
+    event.settings.locales = ['en', 'de']
+    event.settings.attendee_names_asked = True
+    event.settings.payment_banktransfer__enabled = True
+    event.organizer.settings.customer_accounts = True
+
+    # Index
+    client.get(live_server.url + '/{}/{}/'.format(
+        organizer.slug, event.slug
+    ))
+    client.find_element_by_css_selector("input[name=item_{}]".format(items[0].pk)).send_keys('1')
+    client.find_element_by_css_selector("#btn-add-to-cart").click()
+
+    # Cart
+    client.find_element_by_css_selector(".cart")
+
+    client.get(live_server.url + '/{}/{}/checkout/customer/'.format(
+        organizer.slug, event.slug
+    ))
+    # Login
+    client.find_element_by_css_selector("#id_login-email")
+    client.find_element_by_css_selector("[data-target='#customer_login']").click()
+    screenshot(client, 'website/frontend/shop_customer.png')
