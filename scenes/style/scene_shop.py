@@ -54,7 +54,7 @@ def chrome_options(request, chrome_options):
     global SCREEN
     SCREEN = request.param
 
-    chrome_options._arguments.remove('window-size=1024x768')
+    chrome_options._arguments.remove('window-size=1366x768')
     chrome_options.add_argument('headless')
     if SCREEN == "wide":
         chrome_options.add_argument('window-size=1920x1080')
@@ -126,7 +126,7 @@ def shot_shop_frontpage(live_server, organizer, event, items, color_opts, lang_o
     client.get(live_server.url + '/{}/{}/'.format(
         organizer.slug, event.slug
     ))
-    client.find_element_by_css_selector("a[data-toggle=variations]")
+    client.find_element_by_css_selector("button[data-toggle=variations]")
     client.execute_script("window.scrollTo(0, 0)")
     time.sleep(1)
     screenshot(client, 'style/shop_frontpage_{}.png'.format('_'.join([

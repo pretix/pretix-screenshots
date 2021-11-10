@@ -51,7 +51,7 @@ def shot_shop_frontpage(live_server, organizer, event, items, logged_in_client):
     client.get(live_server.url + '/{}/{}/'.format(
         organizer.slug, event.slug
     ))
-    client.find_element_by_css_selector("a[data-toggle=variations]").click()
+    client.find_element_by_css_selector("button[data-toggle=variations]").click()
     time.sleep(1)
     client.find_element_by_css_selector(".product-description").click()
     screenshot(client, 'website/frontend/shop_frontpage.png')
