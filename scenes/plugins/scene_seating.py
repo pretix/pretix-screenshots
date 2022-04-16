@@ -4,6 +4,8 @@ import time
 import pytest
 import random
 from django.conf import settings
+from django.core.files.base import ContentFile
+from django.core.files.storage import default_storage
 from django.utils.translation import gettext as _, get_language
 
 from pretix.base.models import SeatingPlan, Event
@@ -69,12 +71,22 @@ def seating_event(event: Event, seating_plan, item_front, item_middle, item_back
     quota_tickets.variations.add(*item_back.variations.all())
     quota_tickets.variations.add(*item_front.variations.all())
     quota_tickets.variations.add(*item_middle.variations.all())
-    event.name = _('Cool Cello Concert')
+    event.name = _('Heidelberg Orchestra in Concert')
+    event.location = _('Concert Hall\nMozart Street 5\nHeidelberg')
     event.date_to = None
     event.date_from = event.date_from.replace(hour=19)
     event.seating_plan = seating_plan
     event.plugins += ',pretix_seating'
     event.save()
+
+    value = open(os.path.join(os.path.dirname(__file__), "../../assets/concert_header.jpg"), "rb")
+    newname = default_storage.save('logo.jpg', ContentFile(value.read()))
+    event.settings.logo_image = 'file://' + newname
+    event.settings.logo_image_large = True
+    event.settings.primary_color = '#ed0808'
+    event.settings.theme_color_background = '#821f1f'
+    event.settings.primary_font = 'Montserrat'
+
     generate_seats(event, None, event.seating_plan, {
         m.layout_category: m.product
         for m in event.seat_category_mappings.select_related('product').filter(subevent=None)

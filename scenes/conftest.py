@@ -58,7 +58,7 @@ def organizer(user, locale):
 @pytest.fixture
 def event(organizer, locale):
     e = organizer.events.create(
-        name=_("Yearly Demo Conference"),
+        name=_("25th International Ticketing Conference"),
         slug="ydc",
         date_from=datetime.datetime((now().year + 1), 7, 31, 9, 0, 0, tzinfo=pytz.UTC),
         date_to=datetime.datetime((now().year + 1), 8, 2, 16, 0, 0, tzinfo=pytz.UTC),

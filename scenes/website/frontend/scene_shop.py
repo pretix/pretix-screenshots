@@ -21,8 +21,8 @@ def items(event, tax_rule):
     v4 = i4.variations.create(value=_('L'), default_price=30)
 
     wc = event.categories.create(name=_('Workshops'))
-    wc1 = event.items.create(name=_('Workshop session: Digital future'), default_price=12, active=True, category=wc)
-    wc2 = event.items.create(name=_('Workshop session: Analog future'), default_price=12, active=True, category=wc)
+    wc1 = event.items.create(name=_('Workshop session: Digital future'), default_price=12, active=True, category=wc, tax_rule=tax_rule)
+    wc2 = event.items.create(name=_('Workshop session: Analog future'), default_price=12, active=True, category=wc, tax_rule=tax_rule)
     i1.addons.create(addon_category=wc, min_count=0, max_count=2)
 
     q1 = event.quotas.create(name=_('Available'), size=100)
