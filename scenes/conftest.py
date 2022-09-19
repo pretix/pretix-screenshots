@@ -44,7 +44,8 @@ def admin_team(organizer, user):
     t = organizer.teams.create(name=_("Admin team"), all_events=True, can_change_organizer_settings=True,
                                can_change_event_settings=True, can_change_items=True, can_change_teams=True,
                                can_create_events=True, can_view_orders=True, can_change_orders=True,
-                               can_view_vouchers=True, can_change_vouchers=True)
+                               can_view_vouchers=True, can_change_vouchers=True, can_manage_customers=True,
+                               can_manage_gift_cards=True)
     t.members.add(user)
     return t
 

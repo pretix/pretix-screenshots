@@ -70,7 +70,7 @@ def chrome_options(request, chrome_options):
     return chrome_options
 
 
-@pytest.yield_fixture(params=["stock", "custom_round", "custom_sharp"])
+@pytest.yield_fixture(params=["stock", "custom_round"])
 def color_opts(request, event):
     if request.param == "custom_round":
         event.settings.primary_color = '#ed0808'
@@ -90,14 +90,14 @@ def organizer_link_back(request, event):
     return request.param
 
 
-@pytest.yield_fixture(params=["en", "de,en", "ar,de,en,fr"])
+@pytest.yield_fixture(params=["en", "de,en"])
 def lang_opts(request, event):
     event.settings.locales = request.param.split(',')
     event.settings.locale = request.param.split(',')[0]
     return request.param
 
 
-@pytest.yield_fixture(params=["largeheader_title", "largeheader", "smallheader_title", "smallheader", "logo", "logo_title", "title"])
+@pytest.yield_fixture(params=["largeheader_title", "smallheader_title", "logo_title", "title"])
 def pic_opts(request, event):
     if "largeheader" in request.param:
         value = open(os.path.join(os.path.dirname(__file__), "../../assets/eventheader_large.jpg"), "rb")
