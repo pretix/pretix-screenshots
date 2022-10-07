@@ -71,8 +71,8 @@ def shot_shop_checkout_steps(live_server, organizer, event, items, logged_in_cli
     event.settings.payment_stripe_method_cc = True
     event.settings.payment_stripe_method_giropay = True
     event.settings.payment_stripe_method_sofort = True
-    event.settings.payment_paypal__fee_abs = 0.34
-    event.settings.payment_paypal__fee_percent = 1.4
+    #event.settings.payment_paypal__fee_abs = 0.34
+    #event.settings.payment_paypal__fee_percent = 1.4
 
     # Index
     client.get(live_server.url + '/{}/{}/'.format(
