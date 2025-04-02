@@ -3,6 +3,7 @@ from datetime import timedelta
 
 import faker
 import pytest
+from selenium.webdriver.common.by import By
 from decimal import Decimal
 from django.utils.timezone import now
 from django.utils.translation import gettext as _
@@ -76,5 +77,5 @@ def shot_waiting_list_admin(live_server, organizer, event, logged_in_client, dat
     logged_in_client.get(live_server.url + '/control/event/{}/{}/checkinlists/'.format(
         organizer.slug, event.slug
     ))
-    logged_in_client.find_element_by_css_selector(".table")
+    logged_in_client.find_element(By.CSS_SELECTOR, ".table")
     screenshot(logged_in_client, 'website/control/checkinlist_admin.png')

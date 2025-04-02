@@ -2,6 +2,7 @@ import random
 
 import faker
 import pytest
+from selenium.webdriver.common.by import By
 from django.utils.translation import gettext as _
 
 from ...utils import screenshot
@@ -42,5 +43,5 @@ def shot_waiting_list_admin(live_server, organizer, event, logged_in_client, wai
     logged_in_client.get(live_server.url + '/control/event/{}/{}/waitinglist/'.format(
         organizer.slug, event.slug
     ))
-    logged_in_client.find_element_by_css_selector(".table-condensed")
+    logged_in_client.find_element(By.CSS_SELECTOR, ".table-condensed")
     screenshot(logged_in_client, 'website/control/waiting_list_admin.png')

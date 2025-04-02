@@ -2,6 +2,7 @@ import os
 
 import pytest
 import time
+from selenium.webdriver.common.by import By
 
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
@@ -126,7 +127,7 @@ def shot_shop_frontpage(live_server, organizer, event, items, color_opts, lang_o
     client.get(live_server.url + '/{}/{}/'.format(
         organizer.slug, event.slug
     ))
-    client.find_element_by_css_selector("button[data-toggle=variations]")
+    client.find_element(By.CSS_SELECTOR, "button[data-toggle=variations]")
     client.execute_script("window.scrollTo(0, 0)")
     time.sleep(1)
     screenshot(client, 'style/shop_frontpage_{}.png'.format('_'.join([

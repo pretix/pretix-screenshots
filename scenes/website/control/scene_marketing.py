@@ -3,6 +3,7 @@ import time
 from datetime import timedelta
 
 import pytest
+from selenium.webdriver.common.by import By
 from decimal import Decimal
 
 from django.conf import settings
@@ -22,9 +23,9 @@ def shot_voucher_create(live_server, organizer, event, logged_in_client):
     logged_in_client.get(live_server.url + '/control/event/{}/{}/vouchers/add'.format(
         organizer.slug, event.slug
     ))
-    logged_in_client.find_element_by_css_selector("#id_code")
+    logged_in_client.find_element(By.CSS_SELECTOR, "#id_code")
     Select(logged_in_client.find_element_by_name('price_mode')).select_by_value("percent")
-    logged_in_client.find_element_by_css_selector("#id_value").send_keys("25")
+    logged_in_client.find_element(By.CSS_SELECTOR, "#id_value").send_keys("25")
 
     screenshot(logged_in_client, 'website/control/voucher_create.png')
 
@@ -37,7 +38,7 @@ def shot_sendmail(live_server, organizer, event, logged_in_client):
     logged_in_client.get(live_server.url + '/control/event/{}/{}/sendmail/'.format(
         organizer.slug, event.slug
     ))
-    logged_in_client.find_element_by_css_selector("#id_subject_0")
+    logged_in_client.find_element(By.CSS_SELECTOR, "#id_subject_0")
     screenshot(logged_in_client, 'website/control/sendmail.png')
 
 

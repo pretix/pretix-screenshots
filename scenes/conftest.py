@@ -1,6 +1,7 @@
 import datetime
 import os
 from decimal import Decimal
+from selenium.webdriver.common.by import By
 
 import pytest
 import pytz
@@ -114,9 +115,9 @@ def logged_in_client(live_server, selenium, user, admin_team, locale):
     selenium.get(live_server.url + '/control/login')
     selenium.implicitly_wait(10)
 
-    selenium.find_element_by_css_selector("form input[name=email]").send_keys(user.email)
-    selenium.find_element_by_css_selector("form input[name=password]").send_keys('john')
-    selenium.find_element_by_css_selector("form button[type=submit]").click()
+    selenium.find_element(By.CSS_SELECTOR, "form input[name=email]").send_keys(user.email)
+    selenium.find_element(By.CSS_SELECTOR, "form input[name=password]").send_keys('john')
+    selenium.find_element(By.CSS_SELECTOR, "form button[type=submit]").click()
     return selenium
 
 

@@ -1,4 +1,5 @@
 import pytest
+from selenium.webdriver.common.by import By
 import time
 from django.utils.translation import gettext as _
 
@@ -51,9 +52,9 @@ def shot_shop_frontpage(live_server, organizer, event, items, logged_in_client):
     client.get(live_server.url + '/{}/{}/'.format(
         organizer.slug, event.slug
     ))
-    client.find_element_by_css_selector("button[data-toggle=variations]").click()
+    client.find_element(By.CSS_SELECTOR, "button[data-toggle=variations]").click()
     time.sleep(1)
-    client.find_element_by_css_selector(".product-description").click()
+    client.find_element(By.CSS_SELECTOR, ".product-description").click()
     screenshot(client, 'website/frontend/shop_frontpage.png')
 
 
@@ -78,27 +79,27 @@ def shot_shop_checkout_steps(live_server, organizer, event, items, logged_in_cli
     client.get(live_server.url + '/{}/{}/'.format(
         organizer.slug, event.slug
     ))
-    client.find_element_by_css_selector("input[name=item_{}]".format(items[0].pk)).send_keys('1')
-    client.find_element_by_css_selector("#btn-add-to-cart").click()
+    client.find_element(By.CSS_SELECTOR, "input[name=item_{}]".format(items[0].pk)).send_keys('1')
+    client.find_element(By.CSS_SELECTOR, "#btn-add-to-cart").click()
 
     # Cart
-    client.find_element_by_css_selector(".cart")
+    client.find_element(By.CSS_SELECTOR, ".cart")
     screenshot(client, 'website/frontend/shop_addons.png')
-    client.find_element_by_css_selector(".cart .btn-primary").click()
+    client.find_element(By.CSS_SELECTOR, ".cart .btn-primary").click()
 
     # Addons
-    client.find_element_by_css_selector(".checkout-flow")
+    client.find_element(By.CSS_SELECTOR, ".checkout-flow")
     screenshot(client, 'website/frontend/shop_addons.png')
-    client.find_element_by_css_selector(".btn-primary").click()
+    client.find_element(By.CSS_SELECTOR, ".btn-primary").click()
 
     # Questions
-    client.find_element_by_css_selector("#id_email")
+    client.find_element(By.CSS_SELECTOR, "#id_email")
     screenshot(client, 'website/frontend/shop_questions.png')
-    client.find_element_by_css_selector("#id_email").send_keys('support@pretix.eu')
-    client.find_element_by_css_selector(".btn-primary").click()
+    client.find_element(By.CSS_SELECTOR, "#id_email").send_keys('support@pretix.eu')
+    client.find_element(By.CSS_SELECTOR, ".btn-primary").click()
 
     # Payment
-    client.find_element_by_css_selector("#payment_accordion")
+    client.find_element(By.CSS_SELECTOR, "#payment_accordion")
     screenshot(client, 'website/frontend/shop_payment.png')
 
 
@@ -115,16 +116,16 @@ def shot_shop_checkout_customer_step(live_server, organizer, event, items, logge
     client.get(live_server.url + '/{}/{}/'.format(
         organizer.slug, event.slug
     ))
-    client.find_element_by_css_selector("input[name=item_{}]".format(items[0].pk)).send_keys('1')
-    client.find_element_by_css_selector("#btn-add-to-cart").click()
+    client.find_element(By.CSS_SELECTOR, "input[name=item_{}]".format(items[0].pk)).send_keys('1')
+    client.find_element(By.CSS_SELECTOR, "#btn-add-to-cart").click()
 
     # Cart
-    client.find_element_by_css_selector(".cart")
+    client.find_element(By.CSS_SELECTOR, ".cart")
 
     client.get(live_server.url + '/{}/{}/checkout/customer/'.format(
         organizer.slug, event.slug
     ))
     # Login
-    client.find_element_by_css_selector("#id_login-email")
-    client.find_element_by_css_selector("[data-target='#customer_login']").click()
+    client.find_element(By.CSS_SELECTOR, "#id_login-email")
+    client.find_element(By.CSS_SELECTOR, "[data-target='#customer_login']").click()
     screenshot(client, 'website/frontend/shop_customer.png')

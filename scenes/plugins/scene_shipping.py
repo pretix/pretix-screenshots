@@ -1,5 +1,6 @@
 import pytest
 import time
+from selenium.webdriver.common.by import By
 
 from decimal import Decimal
 from django.conf import settings
@@ -51,12 +52,12 @@ def cart(organizer, event, tax_rule, live_server, logged_in_client):
         organizer.slug, event.slug,
     ))
     logged_in_client.find_element_by_id("btn-add-to-cart").click()
-    logged_in_client.find_element_by_css_selector(".cart-row")
+    logged_in_client.find_element(By.CSS_SELECTOR, ".cart-row")
     logged_in_client.get(live_server.url + '/{}/{}/checkout/start'.format(
         organizer.slug, event.slug,
     ))
-    logged_in_client.find_element_by_css_selector("input[name='email']").send_keys("support@pretix.eu")
-    logged_in_client.find_element_by_css_selector(".btn-primary").click()
+    logged_in_client.find_element(By.CSS_SELECTOR, "input[name='email']").send_keys("support@pretix.eu")
+    logged_in_client.find_element(By.CSS_SELECTOR, ".btn-primary").click()
 
 
 @pytest.mark.django_db
@@ -90,6 +91,6 @@ def shot_shipping_checkout(live_server, organizer, event, logged_in_client, ship
     logged_in_client.get(live_server.url + '/{}/{}/checkout/shipping'.format(
         organizer.slug, event.slug
     ))
-    logged_in_client.find_element_by_css_selector("input[name='shipping_method']").click()
+    logged_in_client.find_element(By.CSS_SELECTOR, "input[name='shipping_method']").click()
     time.sleep(.5)
     screenshot(logged_in_client, 'plugins/shipping/checkout.png')

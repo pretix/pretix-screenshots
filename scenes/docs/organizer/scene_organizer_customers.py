@@ -2,6 +2,7 @@ from decimal import Decimal
 
 import faker
 import pytest
+from selenium.webdriver.common.by import By
 from django.utils.timezone import now
 
 from django.utils.translation import gettext as _
@@ -13,14 +14,14 @@ from ...utils import screenshot
 @pytest.mark.django_db
 def shot_customer_settings(live_server, organizer, event, logged_in_client):
     logged_in_client.get(live_server.url + '/control/organizer/{}/edit'.format(organizer.slug))
-    logged_in_client.find_element_by_css_selector("a[href='#tab-0-3']").click()
+    logged_in_client.find_element(By.CSS_SELECTOR, "a[href='#tab-0-3']").click()
     screenshot(logged_in_client, 'organizer/edit_customer.png')
 
     logged_in_client.get(live_server.url + '/control/organizer/{}/ssoclient/add'.format(organizer.slug))
     screenshot(logged_in_client, 'organizer/customer_ssoclient_add.png')
 
     logged_in_client.get(live_server.url + '/control/organizer/{}/ssoprovider/add'.format(organizer.slug))
-    logged_in_client.find_element_by_css_selector("#id_method_0").click()
+    logged_in_client.find_element(By.CSS_SELECTOR, "#id_method_0").click()
     screenshot(logged_in_client, 'organizer/customer_ssoprovider_add.png')
 
 

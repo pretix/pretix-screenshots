@@ -29,49 +29,49 @@ def shot_create(live_server, organizer, event, logged_in_client):
     logged_in_client.get(live_server.url + '/control/event/{}/{}/subevents/bulk_add'.format(
         organizer.slug, event.slug,
     ))
-    logged_in_client.find_element_by_css_selector("input[name='rruleformset-0-weekly_byweekday'][value='TU']").click()
-    logged_in_client.find_element_by_css_selector("input[name='rruleformset-0-weekly_byweekday'][value='WE']").click()
-    logged_in_client.find_element_by_css_selector("input[name='rruleformset-0-weekly_byweekday'][value='TH']").click()
-    logged_in_client.find_element_by_css_selector("input[name='rruleformset-0-weekly_byweekday'][value='FR']").click()
-    logged_in_client.find_element_by_css_selector("input[name='rruleformset-0-weekly_byweekday'][value='SA']").click()
-    logged_in_client.find_element_by_css_selector("input[name='rruleformset-0-until']").clear()
-    logged_in_client.find_element_by_css_selector("input[name='rruleformset-0-until']").send_keys(
+    logged_in_client.find_element(By.CSS_SELECTOR, "input[name='rruleformset-0-weekly_byweekday'][value='TU']").click()
+    logged_in_client.find_element(By.CSS_SELECTOR, "input[name='rruleformset-0-weekly_byweekday'][value='WE']").click()
+    logged_in_client.find_element(By.CSS_SELECTOR, "input[name='rruleformset-0-weekly_byweekday'][value='TH']").click()
+    logged_in_client.find_element(By.CSS_SELECTOR, "input[name='rruleformset-0-weekly_byweekday'][value='FR']").click()
+    logged_in_client.find_element(By.CSS_SELECTOR, "input[name='rruleformset-0-weekly_byweekday'][value='SA']").click()
+    logged_in_client.find_element(By.CSS_SELECTOR, "input[name='rruleformset-0-until']").clear()
+    logged_in_client.find_element(By.CSS_SELECTOR, "input[name='rruleformset-0-until']").send_keys(
         date_format(now() + datetime.timedelta(days=30), 'SHORT_DATETIME_FORMAT')
     )
-    logged_in_client.find_element_by_css_selector("input[name='rruleformset-0-end'][value='until']").click()
-    logged_in_client.find_element_by_css_selector("#time-formset [data-formset-add]").click()
-    logged_in_client.find_element_by_css_selector("#time-formset [data-formset-add]").click()
-    logged_in_client.find_element_by_css_selector("input[name='timeformset-0-time_from']").send_keys('10:00:00')
-    logged_in_client.find_element_by_css_selector("input[name='timeformset-0-time_to']").send_keys('11:00:00')
-    logged_in_client.find_element_by_css_selector("input[name='timeformset-1-time_from']").send_keys('11:00:00')
-    logged_in_client.find_element_by_css_selector("input[name='timeformset-1-time_to']").send_keys('12:00:00')
-    logged_in_client.find_element_by_css_selector("input[name='timeformset-2-time_from']").send_keys('12:00:00')
-    logged_in_client.find_element_by_css_selector("input[name='timeformset-2-time_to']").send_keys('13:00:00')
-    logged_in_client.find_element_by_css_selector("input[name='timeformset-3-time_from']").send_keys('13:00:00')
-    logged_in_client.find_element_by_css_selector("input[name='timeformset-3-time_to']").send_keys('14:00:00')
-    logged_in_client.find_element_by_css_selector("input[name='rruleformset-0-interval']").click()
+    logged_in_client.find_element(By.CSS_SELECTOR, "input[name='rruleformset-0-end'][value='until']").click()
+    logged_in_client.find_element(By.CSS_SELECTOR, "#time-formset [data-formset-add]").click()
+    logged_in_client.find_element(By.CSS_SELECTOR, "#time-formset [data-formset-add]").click()
+    logged_in_client.find_element(By.CSS_SELECTOR, "input[name='timeformset-0-time_from']").send_keys('10:00:00')
+    logged_in_client.find_element(By.CSS_SELECTOR, "input[name='timeformset-0-time_to']").send_keys('11:00:00')
+    logged_in_client.find_element(By.CSS_SELECTOR, "input[name='timeformset-1-time_from']").send_keys('11:00:00')
+    logged_in_client.find_element(By.CSS_SELECTOR, "input[name='timeformset-1-time_to']").send_keys('12:00:00')
+    logged_in_client.find_element(By.CSS_SELECTOR, "input[name='timeformset-2-time_from']").send_keys('12:00:00')
+    logged_in_client.find_element(By.CSS_SELECTOR, "input[name='timeformset-2-time_to']").send_keys('13:00:00')
+    logged_in_client.find_element(By.CSS_SELECTOR, "input[name='timeformset-3-time_from']").send_keys('13:00:00')
+    logged_in_client.find_element(By.CSS_SELECTOR, "input[name='timeformset-3-time_to']").send_keys('14:00:00')
+    logged_in_client.find_element(By.CSS_SELECTOR, "input[name='rruleformset-0-interval']").click()
     logged_in_client.execute_script("window.scrollTo(0, 0)")
     screenshot(logged_in_client, 'event/timeslots_create.png')
     logged_in_client.execute_script(
         "arguments[0].scrollIntoView();",
-        logged_in_client.find_element_by_css_selector("input[name='rruleformset-0-until']")
+        logged_in_client.find_element(By.CSS_SELECTOR, "input[name='rruleformset-0-until']")
     )
-    logged_in_client.find_element_by_css_selector("input[name='name_0']").send_keys(event.name)
+    logged_in_client.find_element(By.CSS_SELECTOR, "input[name='name_0']").send_keys(event.name)
     screenshot(logged_in_client, 'event/timeslots_create_2.png')
     logged_in_client.execute_script(
         "arguments[0].scrollIntoView();",
-        logged_in_client.find_element_by_css_selector("input[name='quotas-0-name']")
+        logged_in_client.find_element(By.CSS_SELECTOR, "input[name='quotas-0-name']")
     )
-    logged_in_client.find_element_by_css_selector("input[name='quotas-0-name']").send_keys(event.name)
-    logged_in_client.find_element_by_css_selector("input[name='quotas-0-size']").send_keys('50')
-    logged_in_client.find_element_by_css_selector(
+    logged_in_client.find_element(By.CSS_SELECTOR, "input[name='quotas-0-name']").send_keys(event.name)
+    logged_in_client.find_element(By.CSS_SELECTOR, "input[name='quotas-0-size']").send_keys('50')
+    logged_in_client.find_element(By.CSS_SELECTOR, 
         "input[name='quotas-0-itemvars'][value='{}']".format(i1.pk)
     ).click()
-    logged_in_client.find_element_by_css_selector(
+    logged_in_client.find_element(By.CSS_SELECTOR, 
         "input[name='quotas-0-itemvars'][value='{}']".format(i2.pk)
     ).click()
     screenshot(logged_in_client, 'event/timeslots_create_3.png')
-    logged_in_client.find_element_by_css_selector(".btn-save").click()
+    logged_in_client.find_element(By.CSS_SELECTOR, ".btn-save").click()
     WebDriverWait(logged_in_client, 10).until(
         EC.presence_of_element_located((By.CSS_SELECTOR, ".alert-success"))
     )
@@ -83,7 +83,7 @@ def shot_create(live_server, organizer, event, logged_in_client):
         "arguments[0].scrollIntoView();",
         logged_in_client.find_elements_by_css_selector(".btn-save")[-1]
     )
-    logged_in_client.find_element_by_css_selector("select[name='settings-event_list_type']").click()
+    logged_in_client.find_element(By.CSS_SELECTOR, "select[name='settings-event_list_type']").click()
     screenshot(logged_in_client, 'event/timeslots_settings_1.png')
 
     logged_in_client.get(live_server.url + '/{}/{}/'.format(
@@ -96,7 +96,7 @@ def shot_create(live_server, organizer, event, logged_in_client):
     ))
     logged_in_client.execute_script(
         "arguments[0].scrollIntoView();",
-        logged_in_client.find_element_by_css_selector(".checkin-rule-addchild")
+        logged_in_client.find_element(By.CSS_SELECTOR, ".checkin-rule-addchild")
     )
     logged_in_client.find_elements_by_css_selector(".checkin-rule-addchild")[0].click()
     logged_in_client.find_elements_by_css_selector(".checkin-rule-addchild")[0].click()
