@@ -7,9 +7,7 @@ from selenium.webdriver.common.by import By
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
 from django.utils.translation import gettext as _
-from pretix.presale.style import regenerate_css
 
-from pretix.presale.style import regenerate_css
 from ..utils import screenshot
 
 
@@ -76,12 +74,10 @@ def color_opts(request, event):
     if request.param == "custom_round":
         event.settings.primary_color = '#ed0808'
         event.settings.theme_color_background = '#b20707'
-        regenerate_css.apply(args=(event.pk,))
     elif request.param == "custom_sharp":
         event.settings.primary_color = '#ed0808'
         event.settings.theme_color_background = '#000000'
         event.settings.theme_round_borders = False
-        regenerate_css.apply(args=(event.pk,))
     return request.param
 
 

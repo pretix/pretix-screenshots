@@ -10,7 +10,6 @@ from django.utils.translation import gettext as _, get_language
 
 from pretix.base.models import SeatingPlan, Event
 from pretix.base.services.seating import generate_seats
-from pretix.presale.style import regenerate_css
 from ..utils import screenshot
 
 
@@ -98,7 +97,6 @@ def seating_event(event: Event, seating_plan, item_front, item_middle, item_back
                 s.blocked = True
                 s.save()
         previous_blocked = s.blocked
-    regenerate_css.apply_async(args=(event.pk,))
     return event
 
 

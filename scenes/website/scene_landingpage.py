@@ -10,7 +10,6 @@ from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
 from django.utils.timezone import now
 from django.utils.translation import gettext as _
-from pretix.presale.style import regenerate_css
 
 # fixtures from elsewhere
 from ..plugins.scene_seating import seating_event, seating_plan, item_back, item_front, item_middle
@@ -59,7 +58,6 @@ def swimming_series(event):
     event.settings.theme_color_background = '#e6e6ff'
     event.settings.event_list_type = 'week'
 
-    regenerate_css.apply_async(args=(event.pk,))
     return event
 
 
@@ -106,7 +104,6 @@ def workshop_series(event):
     event.settings.logo_show_title = True
     event.settings.waiting_list_enabled = True
 
-    regenerate_css.apply_async(args=(event.pk,))
     return event
 
 
@@ -162,7 +159,6 @@ def shot_with_seats(live_server, logged_in_client, organizer, event, seating_eve
 )
 def shot_without_seats(live_server, logged_in_client, organizer, event, items):
     event.settings.theme_color_background = '#f5f5f5'
-    regenerate_css.apply_async(args=(event.pk,))
     logged_in_client.get(live_server.url + '/{}/{}/'.format(
         organizer.slug, event.slug
     ))
@@ -226,7 +222,6 @@ def shot_museum(live_server, logged_in_client, organizer, event, items_museum):
     event.name = 'Art Museum'
     event.location = _('Caspar-David-Friedrich Street 42\nHeidelberg')
     event.save()
-    regenerate_css.apply_async(args=(event.pk,))
     logged_in_client.get(live_server.url + '/{}/{}/'.format(
         organizer.slug, event.slug
     ))
