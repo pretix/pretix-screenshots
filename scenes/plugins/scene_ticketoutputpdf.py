@@ -20,7 +20,7 @@ def shot_pdf_editor(live_server, organizer, event, logged_in_client):
     WebDriverWait(logged_in_client, 10).until(
         EC.presence_of_element_located((By.ID, "editor-start"))
     )
-    logged_in_client.find_element_by_id("editor-start").click()
+    logged_in_client.find_element(By.ID, "editor-start").click()
     time.sleep(1.0)
     screenshot(logged_in_client, 'plugins/ticketoutputpdf/editor.png')
-    logged_in_client.find_element_by_id("editor-preview").click()
+    logged_in_client.find_element(By.ID, "editor-preview").click()

@@ -24,7 +24,7 @@ def shot_voucher_create(live_server, organizer, event, logged_in_client):
         organizer.slug, event.slug
     ))
     logged_in_client.find_element(By.CSS_SELECTOR, "#id_code")
-    Select(logged_in_client.find_element_by_name('price_mode')).select_by_value("percent")
+    Select(logged_in_client.find_element(By.NAME, 'price_mode')).select_by_value("percent")
     logged_in_client.find_element(By.CSS_SELECTOR, "#id_value").send_keys("25")
 
     screenshot(logged_in_client, 'website/control/voucher_create.png')

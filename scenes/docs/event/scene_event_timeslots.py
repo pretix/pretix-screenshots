@@ -81,7 +81,7 @@ def shot_create(live_server, organizer, event, logged_in_client):
     ))
     logged_in_client.execute_script(
         "arguments[0].scrollIntoView();",
-        logged_in_client.find_elements_by_css_selector(".btn-save")[-1]
+        logged_in_client.find_elements(By.CSS_SELECTOR, ".btn-save")[-1]
     )
     logged_in_client.find_element(By.CSS_SELECTOR, "select[name='settings-event_list_type']").click()
     screenshot(logged_in_client, 'event/timeslots_settings_1.png')
@@ -98,11 +98,11 @@ def shot_create(live_server, organizer, event, logged_in_client):
         "arguments[0].scrollIntoView();",
         logged_in_client.find_element(By.CSS_SELECTOR, ".checkin-rule-addchild")
     )
-    logged_in_client.find_elements_by_css_selector(".checkin-rule-addchild")[0].click()
-    logged_in_client.find_elements_by_css_selector(".checkin-rule-addchild")[0].click()
-    logged_in_client.find_elements_by_css_selector(".checkin-rule-addchild")[0].click()
+    logged_in_client.find_elements(By.CSS_SELECTOR, ".checkin-rule-addchild")[0].click()
+    logged_in_client.find_elements(By.CSS_SELECTOR, ".checkin-rule-addchild")[0].click()
+    logged_in_client.find_elements(By.CSS_SELECTOR, ".checkin-rule-addchild")[0].click()
 
-    s = logged_in_client.find_elements_by_css_selector(".checkin-rule select")[1]
+    s = logged_in_client.find_elements(By.CSS_SELECTOR, ".checkin-rule select")[1]
     Select(s).select_by_value('now')
     logged_in_client.execute_script(
         'arguments[0].dispatchEvent(new Event("input")); ',
@@ -110,7 +110,7 @@ def shot_create(live_server, organizer, event, logged_in_client):
     )
     time.sleep(.5)
 
-    s = logged_in_client.find_elements_by_css_selector(".checkin-rule select")[2]
+    s = logged_in_client.find_elements(By.CSS_SELECTOR, ".checkin-rule select")[2]
     Select(s).select_by_value('isAfter')
     logged_in_client.execute_script(
         'arguments[0].dispatchEvent(new Event("input")); ',
@@ -118,14 +118,14 @@ def shot_create(live_server, organizer, event, logged_in_client):
     )
     time.sleep(.5)
 
-    s = logged_in_client.find_elements_by_css_selector(".checkin-rule select")[3]
+    s = logged_in_client.find_elements(By.CSS_SELECTOR, ".checkin-rule select")[3]
     Select(s).select_by_value('date_from')
     logged_in_client.execute_script(
         'arguments[0].dispatchEvent(new Event("input")); ',
         s
     )
 
-    s = logged_in_client.find_elements_by_css_selector(".checkin-rule select")[4]
+    s = logged_in_client.find_elements(By.CSS_SELECTOR, ".checkin-rule select")[4]
     Select(s).select_by_value('now')
     logged_in_client.execute_script(
         'arguments[0].dispatchEvent(new Event("input")); ',
@@ -133,7 +133,7 @@ def shot_create(live_server, organizer, event, logged_in_client):
     )
     time.sleep(.5)
 
-    s = logged_in_client.find_elements_by_css_selector(".checkin-rule select")[5]
+    s = logged_in_client.find_elements(By.CSS_SELECTOR, ".checkin-rule select")[5]
     Select(s).select_by_value('isBefore')
     logged_in_client.execute_script(
         'arguments[0].dispatchEvent(new Event("input")); ',
@@ -141,7 +141,7 @@ def shot_create(live_server, organizer, event, logged_in_client):
     )
     time.sleep(.5)
 
-    s = logged_in_client.find_elements_by_css_selector(".checkin-rule select")[6]
+    s = logged_in_client.find_elements(By.CSS_SELECTOR, ".checkin-rule select")[6]
     Select(s).select_by_value('date_to')
     logged_in_client.execute_script(
         'arguments[0].dispatchEvent(new Event("input")); ',
@@ -150,6 +150,6 @@ def shot_create(live_server, organizer, event, logged_in_client):
     time.sleep(.5)
     logged_in_client.execute_script(
         "arguments[0].scrollIntoView();",
-        logged_in_client.find_elements_by_css_selector(".btn-save")[-1]
+        logged_in_client.find_elements(By.CSS_SELECTOR, ".btn-save")[-1]
     )
     screenshot(logged_in_client, 'event/timeslots_checkinlists.png')
