@@ -58,6 +58,7 @@ def swimming_series(event):
     event.settings.theme_color_background = '#e6e6ff'
     event.settings.event_list_type = 'week'
 
+    event.cache.clear()
     return event
 
 
@@ -104,6 +105,7 @@ def workshop_series(event):
     event.settings.logo_show_title = True
     event.settings.waiting_list_enabled = True
 
+    event.cache.clear()
     return event
 
 
@@ -159,6 +161,7 @@ def shot_with_seats(live_server, logged_in_client, organizer, event, seating_eve
 )
 def shot_without_seats(live_server, logged_in_client, organizer, event, items):
     event.settings.theme_color_background = '#f5f5f5'
+    event.cache.clear()
     logged_in_client.get(live_server.url + '/{}/{}/'.format(
         organizer.slug, event.slug
     ))
@@ -222,6 +225,7 @@ def shot_museum(live_server, logged_in_client, organizer, event, items_museum):
     event.name = 'Art Museum'
     event.location = _('Caspar-David-Friedrich Street 42\nHeidelberg')
     event.save()
+    event.cache.clear()
     logged_in_client.get(live_server.url + '/{}/{}/'.format(
         organizer.slug, event.slug
     ))

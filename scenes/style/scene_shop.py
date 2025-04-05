@@ -78,6 +78,7 @@ def color_opts(request, event):
         event.settings.primary_color = '#ed0808'
         event.settings.theme_color_background = '#000000'
         event.settings.theme_round_borders = False
+    event.cache.clear()
     return request.param
 
 
