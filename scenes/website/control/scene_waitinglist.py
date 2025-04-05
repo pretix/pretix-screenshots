@@ -2,8 +2,8 @@ import random
 
 import faker
 import pytest
-from selenium.webdriver.common.by import By
 from django.utils.translation import gettext as _
+from selenium.webdriver.common.by import By
 
 from ...utils import screenshot
 

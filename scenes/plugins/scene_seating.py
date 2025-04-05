@@ -1,15 +1,16 @@
 import os
+import random
 import time
 
 import pytest
-import random
 from django.conf import settings
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
-from django.utils.translation import gettext as _, get_language
-
-from pretix.base.models import SeatingPlan, Event
+from django.utils.translation import get_language
+from django.utils.translation import gettext as _
+from pretix.base.models import Event, SeatingPlan
 from pretix.base.services.seating import generate_seats
+
 from ..utils import screenshot
 
 

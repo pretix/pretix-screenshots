@@ -1,10 +1,9 @@
-import pytest
 import time
-
 from decimal import Decimal
+
+import pytest
 from django.conf import settings
 from django.utils.translation import gettext as _
-
 
 from ..utils import screenshot
 

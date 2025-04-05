@@ -1,11 +1,11 @@
-import pytest
 import time
+
+import pytest
 from django.conf import settings
 from i18nfield.strings import LazyI18nString
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+from selenium.webdriver.support.wait import WebDriverWait
 
 from ..utils import screenshot
 

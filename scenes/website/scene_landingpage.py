@@ -1,6 +1,6 @@
+import datetime
 import os
 import random
-import datetime
 import time
 
 import pytest
@@ -12,10 +12,10 @@ from django.utils.timezone import now
 from django.utils.translation import gettext as _
 
 # fixtures from elsewhere
-from ..plugins.scene_seating import seating_event, seating_plan, item_back, item_front, item_middle
-from .frontend.scene_shop import items
-
+from ..plugins.scene_seating import (item_back, item_front, item_middle,
+                                     seating_event, seating_plan)
 from ..utils import screenshot
+from .frontend.scene_shop import items
 
 SCREEN = ""
 

@@ -5,11 +5,11 @@ from decimal import Decimal
 
 from django.utils.timezone import now
 from django.utils.translation import gettext as _
+from pretix.base.models import Order
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
-from pretix.base.models import Order
 from ..utils import screenshot
 
 

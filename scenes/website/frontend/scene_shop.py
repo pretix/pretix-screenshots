@@ -1,7 +1,8 @@
-import pytest
-from selenium.webdriver.common.by import By
 import time
+
+import pytest
 from django.utils.translation import gettext as _
+from selenium.webdriver.common.by import By
 
 from ...utils import screenshot
 

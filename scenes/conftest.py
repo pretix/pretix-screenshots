@@ -1,20 +1,18 @@
 import datetime
 import os
 from decimal import Decimal
-from selenium.webdriver.common.by import By
 
 import pytest
 import pytz
 from django.test import utils
-from django.utils import translation
 from django.utils.timezone import now
 from django.utils.translation import gettext as _
 from django_scopes import scopes_disabled
 from i18nfield.strings import LazyI18nString
-
 from pretix.base.i18n import language
 from pretix.base.models import Organizer, User
 from pretix.base.settings import GlobalSettingsObject
+from selenium.webdriver.common.by import By
 
 
 @pytest.yield_fixture(params=["en", "de"], autouse=True)
@@ -86,8 +84,8 @@ def tax_rule(event):
 @pytest.fixture
 def var(organizer, settings):
     try:
-        from pretixeu.billing.models import BrandingPartner, OrganizerProfile
         import pretixeu
+        from pretixeu.billing.models import BrandingPartner, OrganizerProfile
     except ImportError:
         pytest.skip("pretixeu not installed")
     bp = BrandingPartner(

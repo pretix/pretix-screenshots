@@ -2,12 +2,11 @@ from decimal import Decimal
 
 import faker
 import pytest
-from selenium.webdriver.common.by import By
 from django.utils.timezone import now
-
 from django.utils.translation import gettext as _
-
 from pretix.base.models import Order
+from selenium.webdriver.common.by import By
+
 from ...utils import screenshot
 
 

@@ -6,10 +6,9 @@ from django.utils.formats import date_format
 from django.utils.timezone import now
 from django.utils.translation import gettext as _
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-
 
 from ...utils import screenshot
 
@@ -64,7 +63,7 @@ def shot_create(live_server, organizer, event, logged_in_client):
     )
     logged_in_client.find_element(By.CSS_SELECTOR, "input[name='quotas-0-name']").send_keys(event.name)
     logged_in_client.find_element(By.CSS_SELECTOR, "input[name='quotas-0-size']").send_keys('50')
-    logged_in_client.find_element(By.CSS_SELECTOR, 
+    logged_in_client.find_element(By.CSS_SELECTOR,
         "input[name='quotas-0-itemvars'][value='{}']".format(i1.pk)
     ).click()
     logged_in_client.find_element(By.CSS_SELECTOR, 

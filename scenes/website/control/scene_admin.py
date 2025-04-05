@@ -1,7 +1,5 @@
 import pytest
-
 from django.conf import settings
-
 
 from ...utils import screenshot
 

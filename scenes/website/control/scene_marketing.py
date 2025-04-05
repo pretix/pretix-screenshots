@@ -1,20 +1,18 @@
 import random
 import time
 from datetime import timedelta
-
-import pytest
-from selenium.webdriver.common.by import By
 from decimal import Decimal
 
+import pytest
 from django.conf import settings
-from django.utils.translation import gettext as _
 from django.utils.timezone import now
+from django.utils.translation import gettext as _
+from pretix.base.models import Order, OrderPayment
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 
-from pretix.base.models import Order, OrderPayment
 from ...utils import screenshot
 
 

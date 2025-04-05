@@ -1,14 +1,13 @@
-import pytest
 import time
-
 from decimal import Decimal
+
+import pytest
 from django.conf import settings
 from django_countries import Countries
 from i18nfield.strings import LazyI18nString
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+from selenium.webdriver.support.wait import WebDriverWait
 
 from ..utils import screenshot
 
